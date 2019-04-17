@@ -36,10 +36,27 @@ black: #000000);
 }
 
 ;
+$laptop: 1024px;
+@mixin laptop {
+    @media (max-width:#{$laptop}) {
+        @content
+    }
+}
+
+;
+$tablet: 768px;
+@mixin tablet {
+    @media (max-width:#{$tablet}) {
+        @content
+    }
+}
+
+;
 body,
 html {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -64,6 +81,7 @@ html {
             padding: 0 1.250em;
             display: flex;
             align-items: center;
+            position: relative;
             a {
                 padding: 0 1.500em;
                 text-decoration: none;
@@ -72,7 +90,21 @@ html {
                 color: #a6adb4;
             }
             .under-home {
+                position: absolute;
+                top: 2.5em;
+                display: flex;
+                flex-direction: column;
+                background: #F6F8F9;
+                min-width: 12.5em;
+                min-height: 12.5em;
+                z-index: 1;
                 display: none;
+                a {
+                    margin: 10px 0;
+                }
+            }
+            .open {
+                display: flex;
             }
             img {
                 padding: 0 1.250em;
@@ -91,11 +123,14 @@ html {
     padding: 0;
     min-height: 37.500em;
     width: 100%;
+    @include laptop {
+        flex-wrap: wrap;
+    }
     .left-side {
         background-image: url('../images/hero-background.png');
         background-size: cover;
         background-repeat: no-repeat;
-        min-width: 76.25em;
+        width: 76.25em;
         min-height: 37.500em;
         display: flex;
         align-items: center;
@@ -137,10 +172,22 @@ html {
         flex-direction: column;
         justify-content: center;
         min-width: 37.5em;
+        @include laptop {
+            width: 100%;
+            flex-direction: row;
+        }
         .content {
-            max-width: 23.75em;
+            width: 23.75em;
             margin: 0 auto;
             position: relative;
+            z-index: 0;
+            @include laptop {
+                margin: 40px auto 80px;
+                width: 50em;
+            }
+            @include tablet {
+                width: 38em;
+            }
             h2 {
                 font-family: font-familty-set(helvetica);
                 font-weight: font-weight-set(bold);
@@ -163,45 +210,57 @@ html {
                 #left {
                     transform: rotate(135deg);
                     right: 10%;
+                    @include laptop {
+                        right: 4%;
+                    }
                 }
                 #right {
                     transform: rotate(-45deg);
                     right: 0;
                 }
             }
-            .article {
-                h3 {
-                    font-family: font-familty-set(helvetica);
-                    font-size: font-size-set(medium);
-                    font-weight: font-weight-set(bold);
-                    color: color-set(accent);
-                }
-                h4 {
-                    font-family: font-familty-set(helvetica);
-                    font-size: font-size-set(medium);
-                    font-weight: font-weight-set(bold);
-                    color: #202124;
-                }
-                p {
-                    font-family: font-familty-set(acumina);
-                    font-size: font-size-set(medium);
-                    font-weight: font-weight-set(regular);
-                    color: #a6adb4;
-                }
-                .time {
+            .text {
+                @include laptop {
                     display: flex;
                     flex-direction: row;
-                    img {
-                        max-width: 16px;
-                        max-height: 16px;
+                }
+                .article {
+                    @include laptop {
+                        margin: 0 40px 0 0;
                     }
-                    span {
-                        font-style: oblique;
+                    h3 {
                         font-family: font-familty-set(helvetica);
-                        font-size: font-size-set(small);
+                        font-size: font-size-set(medium);
+                        font-weight: font-weight-set(bold);
+                        color: color-set(accent);
+                    }
+                    h4 {
+                        font-family: font-familty-set(helvetica);
+                        font-size: font-size-set(medium);
+                        font-weight: font-weight-set(bold);
+                        color: #202124;
+                    }
+                    p {
+                        font-family: font-familty-set(acumina);
+                        font-size: font-size-set(medium);
+                        font-weight: font-weight-set(regular);
                         color: #a6adb4;
-                        padding: 0 10px;
-                        margin: 0;
+                    }
+                    .time {
+                        display: flex;
+                        flex-direction: row;
+                        img {
+                            max-width: 16px;
+                            max-height: 16px;
+                        }
+                        span {
+                            font-style: oblique;
+                            font-family: font-familty-set(helvetica);
+                            font-size: font-size-set(small);
+                            color: #a6adb4;
+                            padding: 0 10px;
+                            margin: 0;
+                        }
                     }
                 }
             }
@@ -236,6 +295,13 @@ html {
         flex-direction: column;
         max-width: 72.5em;
         margin: 0 auto;
+        position: relative;
+        @include laptop {
+            max-width: 50em;
+        }
+        @include tablet {
+            width: 38em;
+        }
         .heading {
             margin: 0;
             h2 {
@@ -246,21 +312,54 @@ html {
                 color: #202124;
                 padding: 40px 0;
             }
+            .carousel {
+                .arrow {
+                    border: solid #202124;
+                    width: 6px;
+                    height: 6px;
+                    border-width: 0 2px 2px 0;
+                    position: absolute;
+                    cursor: pointer;
+                    display: inline-block;
+                }
+                #left {
+                    transform: rotate(135deg);
+                    right: 4%;
+                    top: 10%;
+                }
+                #right {
+                    transform: rotate(-45deg);
+                    right: 0;
+                    top: 10%;
+                }
+            }
         }
         .content {
             margin: 0;
             display: flex;
             flex-direction: row;
-            .item {
+            .item,
+            .item3 {
                 background: #ffffff;
                 border-radius: 5px;
-                max-width: 22.5em;
+                width: 22.5em;
                 margin-right: 40px;
+                img {
+                    @include tablet {
+                        width: 17.75em;
+                    }
+                }
+                @include tablet {
+                    width: 17.75em;
+                }
                 .text {
                     padding: 0;
                     max-width: 280px;
                     min-height: 170px;
                     margin: 0 auto;
+                    @include tablet {
+                        margin: 0 40px;
+                    }
                     h3 {
                         margin: 0 0 10px;
                         padding-top: 40px;
@@ -280,13 +379,24 @@ html {
                     }
                 }
             }
+            .item3 {
+                @include laptop {
+                    display: none;
+                }
+            }
         }
     }
     .happening {
         display: flex;
         flex-direction: column;
-        max-width: 72.5em;
+        width: 72.5em;
         margin: 40px auto 0;
+        @include laptop {
+            width: 50em;
+        }
+        @include tablet {
+            width: 38em;
+        }
         .heading {
             font-family: font-familty-set(helvetica);
             font-weight: font-weight-set(bold);
@@ -295,6 +405,9 @@ html {
         .content {
             display: flex;
             flex-direction: row;
+            @include laptop {
+                flex-direction: column;
+            }
             h3 {
                 font-family: font-familty-set(helvetica);
                 font-weight: font-weight-set(bold);
@@ -321,10 +434,14 @@ html {
                     flex-direction: column;
                     background-image: url(../images/happeningbig-img-1.png);
                     background-repeat: no-repeat;
-                    min-width: 47.5em;
+                    width: 47.5em;
                     min-height: 26.875em;
                     position: relative;
                     margin: 40px 0;
+                    @include tablet {
+                        width: 38em;
+                        border-radius: 9px;
+                    }
                     .content {
                         display: flex;
                         flex-direction: column;
@@ -344,10 +461,14 @@ html {
                     flex-direction: column;
                     background-image: url("../images/happeningbig-img-2.png");
                     background-repeat: no-repeat;
-                    min-width: 47.5em;
+                    width: 47.5em;
                     min-height: 26.875em;
                     position: relative;
                     margin: 40px 0;
+                    @include tablet {
+                        width: 38em;
+                        border-radius: 9px;
+                    }
                     .content {
                         display: flex;
                         flex-direction: column;
@@ -364,8 +485,13 @@ html {
                 }
             }
             .right-side {
-                min-width: 22.5em;
+                width: 22.5em;
                 margin: 40px 40px;
+                @include laptop {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 0;
+                }
                 h4 {
                     font-family: font-familty-set(acumin), Arial;
                     font-weight: 700;
@@ -375,80 +501,125 @@ html {
                 .time {
                     margin: 10px 0 40px;
                 }
+                .item1 {
+                    @include laptop {
+                        margin-right: 40px;
+                    }
+                }
+                .item3 {
+                    @include laptop {
+                        display: none;
+                    }
+                }
+                .item1,
+                .item2 {
+                    img {
+                        @include tablet {
+                            width: 17.75em;
+                        }
+                    }
+                    @include tablet {
+                        width: 17.75em;
+                    }
+                }
             }
         }
     }
 }
 
 .footer {
-    min-height: 12.5em;
-    width: 100%;
-    background: #a6adb4;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    .main {
+    .wrapper {
         display: flex;
-        flex-direction: row;
-        margin: 56px 0 60px;
-        a {
-            text-decoration: none;
-            font-family: font-familty-set(helvetica);
-            font-weight: font-weight-set(bold);
-            font-size: font-size-set(extra-small);
-            color: #CBD0D3;
+        justify-content: center;
+        background: #a6adb4;
+        @include tablet {
+            flex-direction: column;
+            align-items: center;
         }
-        .logo {
-            a {
-                color: color-set(white);
-                margin: 0 38px 0 0;
+        .col-1 {
+            @include laptop {
+                margin: 0 0 0 40px;
             }
-        }
-        .navigation-items {
-            display: flex;
-            flex-direction: row;
-            .navigation {
+            .main {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                margin: 56px 0 60px;
+                @include tablet {
+                    width: 38em;
+                    justify-content: space-between;
+                }
                 a {
-                    margin: 0 38px 8px 0;
+                    text-decoration: none;
+                    font-family: font-familty-set(helvetica);
+                    font-weight: font-weight-set(bold);
+                    font-size: font-size-set(extra-small);
+                    color: #CBD0D3;
+                }
+                .logo {
+                    a {
+                        color: color-set(white);
+                        margin: 0 38px 0 0;
+                    }
+                }
+                .navigation-items {
+                    display: flex;
+                    flex-direction: row;
+                    .navigation {
+                        display: flex;
+                        flex-direction: column;
+                        a {
+                            margin: 0 38px 8px 0;
+                        }
+                    }
                 }
             }
         }
-    }
-    .mail {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 56px 0 60px;
-        img {
-            position: absolute;
-            right: 10%;
-            margin: 12px 0 0;
-        }
-        span {
-            font-family: font-familty-set(helvetica);
-            font-weight: font-weight-set(regular);
-            font-size: font-size-set(extra-small);
-            color: #CBD0D3;
-            margin: 16px 0;
-        }
-        input {
-            min-width: 16.25em;
-            min-height: 40px;
-            border-radius: 5px;
-            border: 1px solid #CBD0D3;
-            background: #a6adb4;
-            &::placeholder {
-                position: relative;
-                left: 10%;
+        .col-2 {
+            display: flex;
+            flex-direction: row;
+            @include tablet {
+                width: 38em;
+                justify-content: space-between;
             }
-        }
-    }
-    .socials {
-        margin: 56px 0 60px;
-        img {
-            margin: 0 56px 0 0;
+            .mail {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                margin: 56px 40px 60px;
+                @include tablet {
+                    margin: 50px 0 60px;
+                }
+                img {
+                    position: absolute;
+                    right: 10%;
+                    margin: 12px 0 0;
+                }
+                span {
+                    font-family: font-familty-set(helvetica);
+                    font-weight: font-weight-set(regular);
+                    font-size: font-size-set(extra-small);
+                    color: #CBD0D3;
+                    margin: 16px 0;
+                }
+                input {
+                    min-width: 16.25em;
+                    min-height: 40px;
+                    border-radius: 5px;
+                    border: 1px solid #CBD0D3;
+                    background: #a6adb4;
+                    &::placeholder {
+                        position: relative;
+                        left: 10%;
+                        color: #CBD0D3;
+                    }
+                }
+            }
+            .socials {
+                margin: 56px 0 60px;
+                img {
+                    margin: 0 56px 0 0;
+                }
+            }
         }
     }
 }

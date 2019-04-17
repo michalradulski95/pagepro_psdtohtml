@@ -23,5 +23,18 @@ let underhome = document.querySelector('.under-home');
 
 home.addEventListener('click', function(e) {
     e.preventDefault();
-    underhome.classList.toggle('open');
+    underhome.classList.toggle('openhome');
+});
+
+/*Hamburger menu code */
+
+
+let btn = document.getElementById('btn');
+let menu = document.querySelector('.hammburger-links');
+
+
+btn.addEventListener('click', function() {
+    menu.classList.toggle('openmenu');
+    menu.classList.toggle('openmenubackground');
+
 });

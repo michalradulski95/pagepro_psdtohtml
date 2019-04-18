@@ -65,6 +65,7 @@ html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .navbar {
@@ -88,6 +89,9 @@ html {
             font-weight: font-weight-set(bold);
             font-size: font-size-set(small);
         }
+        &.openmenulogo {
+            left: 0;
+        }
     }
     .phoneavatar {
         display: none;
@@ -110,17 +114,43 @@ html {
             margin: 0 0 0 16px;
             @include phone {
                 display: inline-block;
-                div {
+                .one,
+                .three {
                     background-color: #202124;
                     width: 16px;
                     height: 2px;
                     margin: 4px 0;
+                    transition: all 0.2s ease-out;
+                }
+                .two {
+                    background-color: #202124;
+                    width: 10px;
+                    height: 2px;
+                    margin: 4px 0;
+                    transition: 0.2s ease;
+                }
+            }
+            &.openhammburger {
+                .one {
+                    transform: translateY(5px) rotate(45deg);
+                }
+                .two {
+                    opacity: 0;
+                }
+                .three {
+                    transform: translateY(-5px) rotate(-45deg);
+                }
+                .one,
+                .three {
+                    position: absolute;
+                    left: 40%;
                 }
             }
         }
         .hammburger-links {
             padding: 0 1.250em;
             display: flex;
+            flex-direction: row;
             align-items: center;
             @include phone {
                 position: absolute;
@@ -128,19 +158,49 @@ html {
                 flex-direction: row;
                 left: 0;
                 top: 100%;
-                min-height: 31.375em;
                 width: 100%;
                 padding: 0;
             }
             .menu-img {
-                @include phone {
-                    position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                img {
+                    margin: 40px 30px 40px;
+                    height: 16px;
+                    width: 16px;
+                }
+                &.openimg {
+                    visibility: visible;
+                    display: flex;
+                    flex-direction: column;
+                    opacity: 1;
+                    transition: 0.4s ease;
+                }
+                .profile {
+                    padding: 0;
+                    margin-bottom: 146px;
+                    @include phone {
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                    &.openmenuprofile {
+                        visibility: visible;
+                        opacity: 1;
+                        transition: 0.4s ease;
+                    }
                 }
             }
             .menu-items {
+                display: flex;
+                flex-direction: row;
                 @include phone {
                     display: flex;
                     flex-direction: column;
+                }
+                .profile {
+                    @include phone {
+                        margin-bottom: 146px;
+                    }
                 }
                 a {
                     padding: 0 1.500em;
@@ -149,7 +209,13 @@ html {
                     font-size: font-size-set(extra-small);
                     color: #a6adb4;
                     @include phone {
-                        display: none;
+                        visibility: hidden;
+                        opacity: 0;
+                        padding: 0;
+                        margin: 42px 0;
+                    }
+                    .active {
+                        color: #202124;
                     }
                 }
                 .under-home {
@@ -165,25 +231,32 @@ html {
                     a {
                         margin: 10px 0;
                     }
+                    .active {
+                        color: #202124;
+                    }
                 }
                 .openhome {
                     display: flex;
                 }
-            }
-            img {
-                padding: 0 1.250em;
-            }
-            .active {
-                color: #202124;
+                .active {
+                    color: #202124;
+                }
             }
             &.openmenu a {
-                display: inline-block;
+                visibility: visible;
                 color: #000000;
+                opacity: 1;
+                transition: 0.4s ease;
             }
             &.openmenubackground {
                 background: #F6F8F9;
                 min-height: 31.375em;
-                width: 100%;
+                width: 17.9375em;
+            }
+            .profileimg {
+                @include phone {
+                    display: none;
+                }
             }
         }
     }
@@ -220,9 +293,9 @@ html {
             }
             h1,
             h2 {
-                font-family: font-familty-set(helvetica);
+                font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(bold);
-                font-family: font-size-set(large);
+                font-size: font-size-set(large);
                 color: color-set(white);
             }
             h1 {
@@ -235,11 +308,24 @@ html {
                 padding: 40px 0 10px;
             }
             p {
-                font-family: font-familty-set(helvetica);
+                font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(regular);
-                font-family: font-size-set(medium);
+                font-size: font-size-set(medium);
                 color: color-set(white);
                 margin: 0;
+            }
+            .button-container {
+                margin-top: 46px;
+                .button {
+                    background: #FA6980;
+                    padding: 16px 30px;
+                    border-radius: 5px;
+                    text-align: center;
+                    color: #ffffff;
+                    font-family: font-familty-set(Helvetica), Arial;
+                    font-weight: font-weight-set(bold);
+                    font-size: font-size-set(extra-small);
+                }
             }
         }
     }
@@ -268,9 +354,9 @@ html {
                 width: 23.4375em;
             }
             h2 {
-                font-family: font-familty-set(helvetica);
+                font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(bold);
-                font-family: font-size-set(large);
+                font-size: font-size-set(large);
                 color: #202124;
                 border-bottom: 2px solid #ebeded;
                 margin: 0;
@@ -278,7 +364,7 @@ html {
             }
             .carousel {
                 .arrow {
-                    border: solid #202124;
+                    border: solid #a6adb4;
                     width: 6px;
                     height: 6px;
                     border-width: 0 2px 2px 0;
@@ -297,6 +383,10 @@ html {
                     transform: rotate(-45deg);
                     right: 0;
                 }
+                .active {
+                    border: solid #202124;
+                    border-width: 0 2px 2px 0;
+                }
             }
             .text {
                 @include laptop {
@@ -312,13 +402,13 @@ html {
                         margin: 0 40px 0 0;
                     }
                     h3 {
-                        font-family: font-familty-set(helvetica);
+                        font-family: font-familty-set(helvetica), Arial;
                         font-size: font-size-set(medium);
                         font-weight: font-weight-set(bold);
                         color: color-set(accent);
                     }
                     h4 {
-                        font-family: font-familty-set(helvetica);
+                        font-family: font-familty-set(helvetica), Arial;
                         font-size: font-size-set(medium);
                         font-weight: font-weight-set(bold);
                         color: #202124;
@@ -338,7 +428,7 @@ html {
                         }
                         span {
                             font-style: oblique;
-                            font-family: font-familty-set(helvetica);
+                            font-family: font-familty-set(helvetica), Arial;
                             font-size: font-size-set(small);
                             color: #a6adb4;
                             padding: 0 10px;
@@ -393,20 +483,23 @@ html {
             h2 {
                 font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(bold);
-                font-family: font-size-set(large);
+                font-size: font-size-set(large);
                 margin: 0;
                 color: #202124;
                 padding: 40px 0;
             }
             .carousel {
                 .arrow {
-                    border: solid #202124;
+                    border: solid #a6adb4;
                     width: 6px;
                     height: 6px;
                     border-width: 0 2px 2px 0;
                     position: absolute;
                     cursor: pointer;
                     display: inline-block;
+                    .active {
+                        border: solid #202124;
+                    }
                 }
                 #left {
                     transform: rotate(135deg);
@@ -423,6 +516,10 @@ html {
                     @include phone {
                         top: 5%;
                     }
+                }
+                .active {
+                    border: solid #202124;
+                    border-width: 0 2px 2px 0;
                 }
             }
         }
@@ -504,9 +601,9 @@ html {
             width: 23.4375em;
         }
         .heading {
-            font-family: font-familty-set(helvetica);
+            font-family: font-familty-set(helvetica), Arial;
             font-weight: font-weight-set(bold);
-            font-family: font-size-set(large);
+            font-size: font-size-set(large);
         }
         .content {
             display: flex;
@@ -515,20 +612,20 @@ html {
                 flex-direction: column;
             }
             h3 {
-                font-family: font-familty-set(helvetica);
+                font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(bold);
                 font-size: font-size-set(medium);
                 color: color-set(white);
             }
             h2 {
-                font-family: font-familty-set(helvetica);
+                font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(bold);
                 font-size: font-size-set(large);
                 color: color-set(white);
                 margin: 5px 0;
             }
             p {
-                font-family: font-familty-set(helvetica);
+                font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(regular);
                 font-size: font-size-set(medium);
                 color: color-set(white);
@@ -608,7 +705,7 @@ html {
                     flex-direction: column;
                 }
                 h4 {
-                    font-family: font-familty-set(acumin), Arial;
+                    font-family: font-familty-set(acumin);
                     font-weight: 700;
                     font-size: font-size-set(medium);
                     margin: 20px 0;
@@ -645,7 +742,137 @@ html {
     }
 }
 
+.subscription {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    margin: 50px auto 100px;
+    position: relative;
+    label {
+        margin: 0 0 8px 0;
+        font-family: font-familty-set(acumin);
+        font-weight: font-weight-set(bold);
+        font-size: font-size-set(small);
+    }
+    input,
+    select {
+        width: 360px;
+        height: 40px;
+        border: 2px solid #ebeded;
+        border-radius: 7px;
+        outline: 0;
+        &::placeholder {
+            font-family: font-familty-set(helvetica), Arial;
+            font-weight: font-weight-set(regular);
+            font-size: font-size-set(small);
+            color: #a6adb4;
+            position: relative;
+            left: 5%;
+        }
+        &:focus {
+            border: 2px solid #72acff;
+        }
+    }
+    input {
+        margin: 0 0 26px 0;
+        &.invalid {
+            border: 2px solid #ff4d4d;
+        }
+    }
+    &.wrongmail {
+        width: 230px;
+    }
+    .invalidmail {
+        position: absolute;
+        width: 120px;
+        padding: 12px 0;
+        background: #ff4d4d;
+        border-radius: 7px;
+        top: 23%;
+        right: 0;
+        text-align: center;
+        text-decoration: none;
+        font-family: font-familty-set(acumin);
+        font-weight: font-weight-set(bold);
+        font-size: font-size-set(small);
+        color: #ffffff;
+        visibility: hidden;
+        &.bubbleactive {
+            visibility: visible;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 13px solid transparent;
+            border-right: 26px solid #ff4d4d;
+            border-bottom: 13px solid transparent;
+            margin: -4px 0 0 -30px;
+        }
+    }
+    .username {
+        display: flex;
+        flex-direction: row;
+        height: 46px;
+        margin-bottom: 26px;
+        a {
+            text-align: center;
+            background: #ebeded;
+            padding: 14px 16px;
+            border-radius: 7px 0 0 7px;
+            font-family: font-familty-set(helvetica), Arial;
+            font-weight: font-weight-set(bold);
+            font-size: font-size-set(small);
+            color: #a6adb4;
+        }
+        input {
+            border-radius: 0 7px 7px 0;
+        }
+        &.invalid {
+            border: 2px solid #ff4d4d;
+        }
+    }
+    .select-container {
+        position: relative;
+        select option:focus {
+            border: 2px solid #72acff;
+        }
+        .dquestion {
+            font-family: font-familty-set(helvetica), Arial;
+            font-weight: font-weight-set(regular);
+            font-size: font-size-set(small);
+            color: #a6adb4;
+            padding-left: 16px;
+            &.invalid {
+                border: 2px solid #ff4d4d;
+            }
+        }
+    }
+    .submit {
+        width: 180px;
+        margin-top: 30px;
+        background: #FA6980;
+        font-family: font-familty-set(helvetica), Arial;
+        font-weight: font-weight-set(bold);
+        font-size: font-size-set(extra-small);
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+    }
+}
+
 .footer {
+    @include phone {
+        display: none;
+        max-width: 17.9375em;
+    }
+    &.footerwithnav {
+        display: block;
+        position: absolute;
+        top: 72%;
+        margin-top: 0;
+    }
     .wrapper {
         display: flex;
         justify-content: center;
@@ -660,7 +887,7 @@ html {
             }
             @include phone {
                 margin: 0;
-                width: 23.4375em;
+                width: 14.9375em;
             }
             .main {
                 display: flex;
@@ -672,7 +899,7 @@ html {
                 }
                 a {
                     text-decoration: none;
-                    font-family: font-familty-set(helvetica);
+                    font-family: font-familty-set(helvetica), Arial;
                     font-weight: font-weight-set(bold);
                     font-size: font-size-set(extra-small);
                     color: #CBD0D3;
@@ -697,6 +924,9 @@ html {
                         flex-direction: column;
                         a {
                             margin: 0 38px 8px 0;
+                        }
+                        @include phone {
+                            margin: 0 25px 0 0;
                         }
                     }
                     .navigation1 {
@@ -736,7 +966,7 @@ html {
                     margin: 12px 0 0;
                 }
                 span {
-                    font-family: font-familty-set(helvetica);
+                    font-family: font-familty-set(helvetica), Arial;
                     font-weight: font-weight-set(regular);
                     font-size: font-size-set(extra-small);
                     color: #CBD0D3;
@@ -746,25 +976,29 @@ html {
                     min-width: 16.25em;
                     min-height: 40px;
                     border-radius: 5px;
-                    border: 1px solid #CBD0D3;
+                    border: 2px solid #CBD0D3;
                     background: #a6adb4;
+                    outline: 0;
                     &::placeholder {
                         position: relative;
                         left: 10%;
                         color: #CBD0D3;
+                    }
+                    &:focus {
+                        border: 2px solid #72acff;
                     }
                 }
             }
             .socials {
                 margin: 56px 0 60px;
                 @include phone {
-                    width: 23.4375em;
+                    width: 14.9375em;
                     margin: 20px auto;
                 }
                 img {
                     margin: 0 56px 0 0;
                     @include phone {
-                        margin: 0;
+                        margin: 0 24px 0 0;
                     }
                 }
             }

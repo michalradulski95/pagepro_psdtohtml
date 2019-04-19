@@ -1,10 +1,18 @@
 /*Swiper init*/
-var swiper = new Swiper('.swiper-container', {
+var swiper1 = new Swiper('.s1', {
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.b1',
+        prevEl: '.b2',
     },
 });
+
+var swiper2 = new Swiper('.s2', {
+    navigation: {
+        nextEl: '.b3',
+        prevEl: '.b4',
+    },
+});
+
 
 
 /*Add active class in navbar*/

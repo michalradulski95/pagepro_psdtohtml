@@ -343,7 +343,7 @@ html {
             border-bottom: 2px solid #ebeded;
             margin: 100px auto 0;
             padding: 0 0 40px;
-            width: 15.75em;
+            width: 20em;
             @include laptop {
                 width: 38em;
             }
@@ -392,9 +392,6 @@ html {
         }
         .content {
             width: 23.75em;
-            margin: 0 auto;
-            position: relative;
-            z-index: 0;
             @include laptop {
                 margin: 40px auto 80px;
                 width: 50em;
@@ -522,48 +519,66 @@ html {
                 margin: 0;
                 color: #202124;
                 padding: 40px 0;
+                @include phone {
+                    margin-left: 20px;
+                }
             }
-            .carousel {
-                .arrow {
-                    border: solid #a6adb4;
-                    width: 6px;
-                    height: 6px;
-                    border-width: 0 2px 2px 0;
-                    position: absolute;
-                    cursor: pointer;
-                    display: inline-block;
-                    .active {
-                        border: solid #202124;
-                    }
-                }
-                #left {
-                    transform: rotate(135deg);
-                    right: 4%;
-                    top: 10%;
-                    @include phone {
-                        top: 5%;
-                    }
-                }
-                #right {
-                    transform: rotate(-45deg);
-                    right: 0;
-                    top: 10%;
-                    @include phone {
-                        top: 5%;
-                    }
-                }
-                .active {
-                    border: solid #202124;
-                    border-width: 0 2px 2px 0;
-                }
+        }
+        .swiper-button-next {
+            background-image: none;
+            border: solid #202124;
+            width: 6px;
+            height: 6px;
+            border-width: 0 2px 2px 0;
+            position: absolute;
+            cursor: pointer;
+            display: inline-block;
+            transform: rotate(-45deg);
+            top: 17%;
+            right: 1%;
+            @include laptop {
+                right: 5%;
+            }
+            @include tablet {
+                right: 1%;
+            }
+            @include phone {
+                right: 10%;
+                top: 8%;
+            }
+        }
+        .swiper-button-prev {
+            background-image: none;
+            border: solid #202124;
+            width: 6px;
+            height: 6px;
+            border-width: 0 2px 2px 0;
+            position: absolute;
+            cursor: pointer;
+            display: inline-block;
+            transform: rotate(135deg);
+            top: 17%;
+            left: 95%;
+            @include laptop {
+                left: 90%;
+            }
+            @include phone {
+                left: 80%;
+                top: 8%;
             }
         }
         .content {
             margin: 0;
-            display: flex;
-            flex-direction: row;
             @include phone {
-                flex-direction: column;
+                display: flex;
+                flex-direction: row;
+            }
+            .swiper-slide {
+                display: flex;
+                flex-direction: row;
+                @include phone {
+                    flex-direction: column;
+                }
             }
             .item,
             .item3 {
@@ -636,9 +651,14 @@ html {
             width: 23.4375em;
         }
         .heading {
-            font-family: font-familty-set(helvetica), Arial;
-            font-weight: font-weight-set(bold);
-            font-size: font-size-set(large);
+            h2 {
+                font-family: font-familty-set(helvetica), Arial;
+                font-weight: font-weight-set(bold);
+                font-size: font-size-set(large);
+                margin: 0;
+                color: #202124;
+                padding: 40px 0;
+            }
         }
         .content {
             display: flex;

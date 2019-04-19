@@ -1,3 +1,12 @@
+/*Swiper init*/
+var swiper = new Swiper('.swiper-container', {
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+
 /*Add active class in navbar*/
 let selector, elems, makeActive;
 
@@ -62,7 +71,7 @@ function formValidation() {
     let validMail = true;
     for (let i = 0; i < mail.length; i++) {
         if (mail[i].value == "") {
-            mail[i].classList.toggle('invalid');
+            mail[i].classList.add('invalid');
             bubble.classList.add('bubbleactive');
             mailShorten.style.width = "230px";
             mailLabel.innerHTML = "This isn’t a valid email";
@@ -90,25 +99,20 @@ function formValidation() {
         }
     }
 
-
     let validForm = true;
     let username = document.forms['newslettersub']['username'];
     let dquestion = document.forms['newslettersub']['dquestion'];
-
     if (!username.value) {
         validForm = false;
         setError(username);
     } else {
         removeError(username);
     }
-
     if (!dquestion.selectedIndex) {
         validForm = false;
         setError(dquestion);
     } else {
         removeError(dquestion);
     }
-
     return validForm;
-
 }

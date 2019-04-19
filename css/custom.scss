@@ -316,6 +316,7 @@ html {
             }
             .button-container {
                 margin-top: 46px;
+                cursor: pointer;
                 .button {
                     background: #FA6980;
                     padding: 16px 30px;
@@ -330,12 +331,64 @@ html {
         }
     }
     .right-side {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         min-width: 37.5em;
         @include laptop {
             width: 100%;
+        }
+        h2 {
+            font-family: font-familty-set(helvetica), Arial;
+            font-weight: font-weight-set(bold);
+            font-size: font-size-set(large);
+            color: #202124;
+            border-bottom: 2px solid #ebeded;
+            margin: 100px auto 0;
+            padding: 0 0 40px;
+            width: 15.75em;
+            @include laptop {
+                width: 38em;
+            }
+            @include tablet {
+                width: 25.0838em;
+            }
+            @include phone {
+                width: 12.4375em;
+                margin-left: 60px;
+            }
+        }
+        .swiper-button-next {
+            background-image: none;
+            border: solid #202124;
+            width: 6px;
+            height: 6px;
+            border-width: 0 2px 2px 0;
+            position: absolute;
+            cursor: pointer;
+            display: inline-block;
+            transform: rotate(-45deg);
+            top: 21%;
+            right: 18%;
+            @include phone {
+                right: 40%;
+            }
+        }
+        .swiper-button-prev {
+            background-image: none;
+            border: solid #202124;
+            width: 6px;
+            height: 6px;
+            border-width: 0 2px 2px 0;
+            position: absolute;
+            cursor: pointer;
+            display: inline-block;
+            transform: rotate(135deg);
+            top: 21%;
+            left: 75%;
+            @include phone {
+                left: 53%;
+            }
+        }
+        .swiper-wrapper {
+            margin: 40px 60px 80px !important;
         }
         .content {
             width: 23.75em;
@@ -353,39 +406,21 @@ html {
                 margin: 42px 24px 40px;
                 width: 23.4375em;
             }
-            h2 {
-                font-family: font-familty-set(helvetica), Arial;
-                font-weight: font-weight-set(bold);
-                font-size: font-size-set(large);
-                color: #202124;
-                border-bottom: 2px solid #ebeded;
-                margin: 0;
-                padding: 0 0 40px;
-            }
-            .carousel {
-                .arrow {
-                    border: solid #a6adb4;
-                    width: 6px;
-                    height: 6px;
-                    border-width: 0 2px 2px 0;
-                    position: absolute;
-                    cursor: pointer;
-                    display: inline-block;
+            .swiper-slide {
+                width: 23.75em !important;
+                margin-right: 220px;
+                @include laptop {
+                    width: 50em !important;
                 }
-                #left {
-                    transform: rotate(135deg);
-                    right: 10%;
-                    @include laptop {
-                        right: 4%;
-                    }
+                @include tablet {
+                    width: 38em !important;
+                    margin-right: 137px;
+                    margin-left: 23px;
                 }
-                #right {
-                    transform: rotate(-45deg);
-                    right: 0;
-                }
-                .active {
-                    border: solid #202124;
-                    border-width: 0 2px 2px 0;
+                @include phone {
+                    width: 20.4375em !important;
+                    margin-left: 0;
+                    margin-right: 267px;
                 }
             }
             .text {

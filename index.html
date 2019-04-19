@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>World news</title>
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
 </head>
 
 <body>
@@ -61,15 +62,31 @@
                 </div>
             </div>
         </div>
-        <div class="right-side">
-            <div class="content">
-                <div class="carousel">
-                    <div class="arrow" id="left"></div>
-                    <div class="arrow active" id="right"></div>
-                </div>
-                <h2>MORE NEWS</h2>
-                <div class="text">
+        <div class="right-side swiper-container">
+            <h2>MORE NEWS</h2>
+            <div class="content swiper-wrapper">
+                <div class="text swiper-slide">
+                    <div class="article ">
+                        <h3>TRAVEL</h3>
+                        <h4>Article title</h4>
+                        <p>Lorem ipsum dolor sit amet, ipsum labitur lucilius mel id, ad has appareat…</p>
+                        <div class="time">
+                            <img src="images/time-icon.png" alt="">
+                            <span>2 min ago</span>
+                        </div>
+                    </div>
                     <div class="article">
+                        <h3>TECHNOLOGY</h3>
+                        <h4>Article title</h4>
+                        <p>Lorem ipsum dolor sit amet, ipsum labitur lucilius mel id, ad has appareat…</p>
+                        <div class="time">
+                            <img src="images/time-icon.png" alt="">
+                            <span>2 min ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text swiper-slide">
+                    <div class="article ">
                         <h3>TRAVEL</h3>
                         <h4>Article title</h4>
                         <p>Lorem ipsum dolor sit amet, ipsum labitur lucilius mel id, ad has appareat…</p>
@@ -89,6 +106,8 @@
                     </div>
                 </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
     <!--Wrapping div-->
@@ -273,6 +292,7 @@
             </div>
         </div>
     </div>
+    <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
     <script src="js/custom.js"></script>
 </body>
 

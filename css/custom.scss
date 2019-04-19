@@ -60,6 +60,14 @@ $phone: 425px;
 }
 
 ;
+$small-phone: 375px;
+@mixin small-phone {
+    @media(max-width:#{$small-phone}) {
+        @content
+    }
+}
+
+;
 body,
 html {
     margin: 0;
@@ -164,10 +172,17 @@ html {
             .menu-img {
                 visibility: hidden;
                 opacity: 0;
+                @include small-phone {
+                    position: absolute;
+                    top: 0;
+                }
                 img {
                     margin: 40px 30px 40px;
                     height: 16px;
                     width: 16px;
+                    @include small-phone {
+                        margin: 20px 30px 20px;
+                    }
                 }
                 &.openimg {
                     visibility: visible;
@@ -197,6 +212,11 @@ html {
                     display: flex;
                     flex-direction: column;
                 }
+                @include small-phone {
+                    top: 0;
+                    left: 20%;
+                    position: absolute;
+                }
                 .profile {
                     @include phone {
                         margin-bottom: 146px;
@@ -213,6 +233,9 @@ html {
                         opacity: 0;
                         padding: 0;
                         margin: 42px 0;
+                    }
+                    @include small-phone {
+                        margin: 22px 0;
                     }
                     .active {
                         color: #202124;
@@ -334,6 +357,9 @@ html {
         min-width: 37.5em;
         @include laptop {
             width: 100%;
+        }
+        @include small-phone {
+            margin-left: -20px;
         }
         h2 {
             font-family: font-familty-set(helvetica), Arial;
@@ -927,6 +953,9 @@ html {
         position: absolute;
         top: 72%;
         margin-top: 0;
+        @include small-phone {
+            top: 60%;
+        }
     }
     .wrapper {
         display: flex;

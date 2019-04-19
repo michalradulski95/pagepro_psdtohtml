@@ -157,10 +157,23 @@ html {
   opacity: 0;
 }
 
+@media (max-width: 375px) {
+  .navbar .slider .hammburger-links .menu-img {
+    position: absolute;
+    top: 0;
+  }
+}
+
 .navbar .slider .hammburger-links .menu-img img {
   margin: 40px 30px 40px;
   height: 16px;
   width: 16px;
+}
+
+@media (max-width: 375px) {
+  .navbar .slider .hammburger-links .menu-img img {
+    margin: 20px 30px 20px;
+  }
 }
 
 .navbar .slider .hammburger-links .menu-img.openimg {
@@ -218,6 +231,14 @@ html {
   }
 }
 
+@media (max-width: 375px) {
+  .navbar .slider .hammburger-links .menu-items {
+    top: 0;
+    left: 20%;
+    position: absolute;
+  }
+}
+
 @media (max-width: 425px) {
   .navbar .slider .hammburger-links .menu-items .profile {
     margin-bottom: 146px;
@@ -238,6 +259,12 @@ html {
     opacity: 0;
     padding: 0;
     margin: 42px 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar .slider .hammburger-links .menu-items a {
+    margin: 22px 0;
   }
 }
 
@@ -406,6 +433,12 @@ html {
 @media (max-width: 1024px) {
   .hero .right-side {
     width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero .right-side {
+    margin-left: -20px;
   }
 }
 
@@ -1314,6 +1347,12 @@ html {
   position: absolute;
   top: 72%;
   margin-top: 0;
+}
+
+@media (max-width: 375px) {
+  .footer.footerwithnav {
+    top: 60%;
+  }
 }
 
 .footer .wrapper {

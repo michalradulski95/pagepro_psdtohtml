@@ -955,6 +955,7 @@ html {
         margin-top: 0;
         @include small-phone {
             top: 60%;
+            z-index: 1;
         }
     }
     .wrapper {

@@ -1352,6 +1352,7 @@ html {
 @media (max-width: 375px) {
   .footer.footerwithnav {
     top: 60%;
+    z-index: 1;
   }
 }
 

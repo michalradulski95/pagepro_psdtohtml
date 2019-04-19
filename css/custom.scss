@@ -522,11 +522,8 @@ html {
         }
     }
     .trending {
-        display: flex;
-        flex-direction: column;
         max-width: 72.5em;
         margin: 0 auto;
-        position: relative;
         @include laptop {
             max-width: 50em;
         }
@@ -537,7 +534,6 @@ html {
             width: 23.4375em;
         }
         .heading {
-            margin: 0;
             h2 {
                 font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(bold);

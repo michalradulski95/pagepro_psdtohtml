@@ -677,16 +677,8 @@ html {
 }
 
 .wrapper .trending {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   max-width: 72.5em;
   margin: 0 auto;
-  position: relative;
 }
 
 @media (max-width: 1024px) {
@@ -705,10 +697,6 @@ html {
   .wrapper .trending {
     width: 23.4375em;
   }
-}
-
-.wrapper .trending .heading {
-  margin: 0;
 }
 
 .wrapper .trending .heading h2 {

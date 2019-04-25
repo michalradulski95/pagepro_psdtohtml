@@ -84,7 +84,7 @@ html {
     background: #f6f8f9;
     align-items: center;
     position: relative;
-    .logo {
+    .navbar_logo {
         padding: 0 1.250em;
         @include phone {
             position: absolute;
@@ -101,7 +101,7 @@ html {
             left: 0;
         }
     }
-    .phoneavatar {
+    .navbar_phoneavatar {
         display: none;
         @include phone {
             display: inline;
@@ -110,11 +110,11 @@ html {
             margin-right: 16px;
         }
     }
-    .slider {
+    .navbar_slider {
         @include phone {
             display: flex;
         }
-        .hammburger-menu {
+        .navbar_hamburger-menu {
             width: 16px;
             height: 20px;
             border: 0;
@@ -122,15 +122,15 @@ html {
             margin: 0 0 0 16px;
             @include phone {
                 display: inline-block;
-                .one,
-                .three {
+                .first-line,
+                .third-line {
                     background-color: #202124;
                     width: 16px;
                     height: 2px;
                     margin: 4px 0;
                     transition: all 0.2s ease-out;
                 }
-                .two {
+                .second-line {
                     background-color: #202124;
                     width: 10px;
                     height: 2px;
@@ -138,24 +138,24 @@ html {
                     transition: 0.2s ease;
                 }
             }
-            &.openhammburger {
-                .one {
+            &.openhamburger {
+                .first-line {
                     transform: translateY(5px) rotate(45deg);
                 }
-                .two {
+                .second-line {
                     opacity: 0;
                 }
-                .three {
+                .third-line {
                     transform: translateY(-5px) rotate(-45deg);
                 }
-                .one,
-                .three {
+                .first-line,
+                .third-line {
                     position: absolute;
                     left: 40%;
                 }
             }
         }
-        .hammburger-links {
+        .navbar_hamburger-links {
             padding: 0 1.250em;
             display: flex;
             flex-direction: row;
@@ -249,7 +249,7 @@ html {
                     background: #F6F8F9;
                     min-width: 12.5em;
                     min-height: 12.5em;
-                    z-index: 1;
+                    z-index: 2;
                     display: none;
                     a {
                         margin: 10px 0;
@@ -534,6 +534,7 @@ html {
             width: 23.4375em;
         }
         .heading {
+            margin: 0;
             h2 {
                 font-family: font-familty-set(helvetica), Arial;
                 font-weight: font-weight-set(bold);

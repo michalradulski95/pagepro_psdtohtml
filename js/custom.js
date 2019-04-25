@@ -1,12 +1,12 @@
 /*Swiper init*/
-var swiper1 = new Swiper('.s1', {
+const fisrt_swiper = new Swiper('.s1', {
     navigation: {
         nextEl: '.b1',
         prevEl: '.b2',
     },
 });
 
-var swiper2 = new Swiper('.s2', {
+const second_swiper = new Swiper('.s2', {
     navigation: {
         nextEl: '.b3',
         prevEl: '.b4',
@@ -18,9 +18,9 @@ var swiper2 = new Swiper('.s2', {
 /*Add active class in navbar*/
 let selector, elems, makeActive;
 
-selector1 = ".menu-items a";
-selector2 = ".menu-items .under-home a"
-elems = document.querySelectorAll(selector1, selector2);
+menu_content = ".menu-items a";
+menu_content_open = ".menu-items .under-home a"
+elems = document.querySelectorAll(menu_content, menu_content_open);
 
 makeActive = function() {
     for (let i = 0; i < elems.lenght; i++)
@@ -47,19 +47,19 @@ home.addEventListener('click', function(e) {
 
 
 let btn = document.getElementById('btn');
-let menu = document.querySelector('.hammburger-links');
+let menu = document.querySelector('.navbar_hamburger-links');
 let menuimg = document.querySelector('.menu-img');
 let menuprofile = document.querySelector('.profile');
 let footer = document.querySelector('.footer');
-let phoneavatar = document.querySelector('.phoneavatar');
-let logo = document.querySelector('.logo');
+let phoneavatar = document.querySelector('.navbar_phoneavatar');
+let logo = document.querySelector('.navbar_logo');
 
 btn.addEventListener('click', function() {
     menu.classList.toggle('openmenu');
     menu.classList.toggle('openmenubackground');
     menuimg.classList.toggle('openimg');
     menuprofile.classList.toggle('openmenuprofile');
-    btn.classList.toggle('openhammburger');
+    btn.classList.toggle('openhamburger');
     footer.classList.toggle('footerwithnav');
     phoneavatar.style.display = phoneavatar.style.display === 'none' ? '' : 'none';
     logo.classList.toggle('openmenulogo');
